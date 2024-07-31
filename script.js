@@ -7,10 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const poster = document.getElementById('poster').value;
             const description = document.getElementById('description').value;
             const content = document.getElementById('content').value;
+            const image = document.getElementById('image').files[0];
 
-            const blog = { title, poster, description, content };
-            addBlog(blog);
-            e.target.reset();
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                const blog = { title, poster, description, content, imageUrl };
+                addBlog(blog);
+            };
+            if (image) {
+                reader.readAsDataURL(image);
+            } else {
+                const blog = { title, poster, description, content, imageUrl: '' };
+                addBlog(blog);
+            }
         });
     }
 
@@ -31,8 +41,8 @@ const addBlog = (blog) => {
     const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
     blogs.push(blog);
     localStorage.setItem('blogs', JSON.stringify(blogs));
-    renderBlogs();
     alert('Blog added successfully!');
+    window.location.href = 'index.html'; // Redirect to home page
 };
 
 const deleteBlog = (index) => {
@@ -51,7 +61,7 @@ const renderBlogs = () => {
         const blogCard = document.createElement('div');
         blogCard.className = 'blog-card';
         blogCard.innerHTML = `
-            <img src="${blog.poster}" alt="${blog.title}">
+            <img src="${blog.imageUrl}" alt="${blog.title}">
             <div class="card-content">
                 <h2>${blog.title}</h2>
                 <p>${blog.description}</p>
@@ -73,7 +83,7 @@ const renderBlogDetail = (index) => {
     const blogDetailContainer = document.getElementById('blog-detail');
     blogDetailContainer.innerHTML = `
         <h2>${blog.title}</h2>
-        <img src="${blog.poster}" alt="${blog.title}">
+        <img src="${blog.imageUrl}" alt="${blog.title}">
         <p>${blog.description}</p>
         <div>${blog.content}</div>
     `;
