@@ -55,7 +55,7 @@ const deleteBlog = (index) => {
 
 const renderBlogs = () => {
     const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
-    const blogsContainer = document.getElementById('blogs');
+    const blogsContainer = document.querySelector('.blogs-container');
     blogsContainer.innerHTML = '';
     blogs.forEach((blog, index) => {
         const blogCard = document.createElement('div');

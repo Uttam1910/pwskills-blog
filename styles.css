@@ -7,11 +7,14 @@ body {
 }
 
 header {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #f8f9fa;
 }
 
 header h1 {
@@ -25,10 +28,31 @@ header nav a {
 }
 
 main {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
-#blogs {
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section, .blogs-section {
+    margin-bottom: 2rem;
+}
+
+.about-section h2, .blogs-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.blogs-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -104,8 +128,28 @@ form button {
     margin-top: 1rem;
 }
 
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        margin-top: 1rem;
+    }
+
     #blogs {
         flex-direction: column;
     }
@@ -114,8 +158,6 @@ form button {
         flex: 1 1 100%;
     }
 }
-
-
 
 .delete-btn {
     background-color: #dc3545;
