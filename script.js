@@ -32,6 +32,15 @@ const addBlog = (blog) => {
     blogs.push(blog);
     localStorage.setItem('blogs', JSON.stringify(blogs));
     renderBlogs();
+    alert('Blog added successfully!');
+};
+
+const deleteBlog = (index) => {
+    const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    blogs.splice(index, 1);
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+    renderBlogs();
+    alert('Blog deleted successfully!');
 };
 
 const renderBlogs = () => {
@@ -47,6 +56,7 @@ const renderBlogs = () => {
                 <h2>${blog.title}</h2>
                 <p>${blog.description}</p>
                 <button onclick="viewBlog(${index})">Read</button>
+                <button onclick="deleteBlog(${index})" class="delete-btn">Delete</button>
             </div>
         `;
         blogsContainer.appendChild(blogCard);
