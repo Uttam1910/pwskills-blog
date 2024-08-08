@@ -8,15 +8,37 @@
 </head>
 <body>
     <header>
-        <h1>PWSkills Blog</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="add-blog.html">Add Blog</a>
-        </nav>
+        <div class="container">
+            <h1>PWSkills Blog</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="add-blog.html">Add Blog</a>
+            </nav>
+        </div>
     </header>
     <main id="blog-detail">
-        <!-- Blog details will be added here dynamically -->
+        <div class="container">
+            <div class="blog-header">
+                <div class="blog-title">
+                    <h2 id="blog-title">Blog Title Here</h2>
+                    <p id="blog-summary">This is a short summary of the blog to grab readers' attention.</p>
+                </div>
+                <div class="blog-image">
+                    <img id="author-image" src="author_image.jpg" alt="Author Image">
+                </div>
+            </div>
+            <div class="blog-content">
+                <p id="blog-content">
+                    <!-- Full blog content will be displayed here dynamically when the user clicks on the "Read" button from the home page. -->
+                </p>
+            </div>
+        </div>
     </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PWSkills Blog. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

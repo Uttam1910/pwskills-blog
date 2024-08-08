@@ -1,7 +1,6 @@
 /* General Styles */
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,28 +11,35 @@ body {
 header {
     background-color: #343a40;
     color: white;
-    padding: 1rem 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+header nav {
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 header nav a {
-    margin-left: 1rem;
+    margin: 0 1rem;
     text-decoration: none;
     color: #ffc107;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: #e0a800;
 }
 
 main {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 }
 
 .container {
@@ -42,33 +48,66 @@ main {
     margin: 0 auto;
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #007bff;
-}
-
-
-.about-section, .blogs-section {
+/* Blog Detail Styles */
+.blog-header {
+    display: flex;
+    align-items: center;
+    background-color: #5a2dff;
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
     margin-bottom: 2rem;
 }
 
-.about-section h2, .blogs-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.blog-title {
+    flex: 1;
+    text-align: center;
 }
 
-.about-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.blog-title h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+    font-weight: 700;
+}
+
+.blog-title p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #e0e0e0;
+}
+
+.blog-image {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.blog-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.blog-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
     color: #555;
 }
 
-.blogs-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.blog-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 /* Blog Card Styles */
@@ -76,13 +115,14 @@ h2 {
     flex: 1 1 calc(33.333% - 1rem);
     background-color: white;
     border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s;
+    margin-bottom: 1rem;
 }
 
 .blog-card:hover {
@@ -92,6 +132,7 @@ h2 {
 .blog-card img {
     width: 100%;
     height: auto;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .blog-card .card-content {
@@ -100,11 +141,12 @@ h2 {
 
 .blog-card h2 {
     font-size: 1.25rem;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
 }
 
 .blog-card p {
     color: #6c757d;
+    margin: 0 0 1rem 0;
 }
 
 .blog-card button {
@@ -114,26 +156,33 @@ h2 {
     padding: 0.5rem 1rem;
     cursor: pointer;
     margin-top: auto;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.blog-card button:hover {
+    background-color: #e0a800;
 }
 
 /* Form Styles */
 form {
     background-color: white;
     padding: 2rem;
-    border-radius: 0.25rem;
+    border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 form label {
     margin-top: 1rem;
     font-weight: bold;
+    color: #333;
 }
 
 form input, form textarea, form button {
     padding: 0.75rem;
     margin-top: 0.5rem;
     border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
+    border-radius: 4px;
     width: 100%;
     font-size: 1rem;
 }
@@ -161,45 +210,43 @@ form button:hover {
     background-color: #0056b3;
 }
 
-
 /* Footer Styles */
 footer {
     background-color: #343a40;
     color: white;
     padding: 1rem 0;
     text-align: center;
+    margin-top: 2rem;
 }
 
 footer p {
     margin: 0;
 }
 
-
 /* Responsive Styles */
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     header nav {
         margin-top: 1rem;
+        text-align: center;
     }
 
-    #blogs {
+    .blog-header {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .blog-image {
+        position: static;
+        margin-top: 1rem;
+        transform: none;
+    }
+
+    .blog-image img {
+        width: 100px;
+        height: 100px;
     }
 
     .blog-card {
         flex: 1 1 100%;
     }
-}
-
-.delete-btn {
-    background-color: #dc3545;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 0.5rem;
 }
