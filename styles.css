@@ -117,7 +117,6 @@ h2 {
 }
 
 /* Form Styles */
-/* Form Styles */
 form {
     background-color: white;
     padding: 2rem;
@@ -139,6 +138,10 @@ form input, form textarea, form button {
     font-size: 1rem;
 }
 
+form input[type="file"] {
+    padding: 0;
+}
+
 form input:focus, form textarea:focus, form button:focus {
     outline: none;
     border-color: #007bff;
@@ -157,6 +160,7 @@ form button {
 form button:hover {
     background-color: #0056b3;
 }
+
 
 /* Footer Styles */
 footer {
